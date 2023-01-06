@@ -1,1 +1,4 @@
 
+overuse Main() {
+  printcon("hello") end
+}
