@@ -1,0 +1,167 @@
+
+README
+Information about the content of the package
+
+-------------
+
+"OpenMercury" is a package in a compressed format, which contains the source
+code of the popular personal homepage OS X Mercury, written and developed by
+SE51.net .
+
+-------------
+
+PURPOSE
+
+The source code of the project has been released, in order to provide insight
+into the framework that powers the intuitive homepage. SE51 encourages
+developers and web editors to have a look into the code, find bugs, or improve
+the code.
+
+It has also been released for people who intend to modify the work and use it
+for their own purposes.
+
+-------------
+
+LICENSE
+
+In the OpenMercury directory, in which this README file resides, you will find
+a file named LICENSE. This file contains the General Public License v3, under
+which OpenMercury is licensed.
+
+This means, that if you intend to modify the code or use it for your own
+purposes, please let people know where the code comes from. As I have done in
+the Acknowledgements box of the About OS X window.
+
+-------------
+
+STRUCTURE OF DIRECTORIES
+
+As OS X Mercury was created as a project that resembles Mac OS X, not only the
+functionalities and appearence has been taken into account, the directory
+structure of Mac OS X has also been retained. As a result, the hierarchy of
+directories lays out like this.
+
+/Applications			Contains code for Mercury's applications
+ |
+ -- /Name_app			Name of the application, followed by _app.
+      |				In the original, an application ends with the
+      |				extension .app .
+      |
+      /Contents			May contain some code required for certain		|			functionalities
+	|
+	/Resources		Contains image files required by the
+	| 			application.
+	|
+	/MacOS			Contains the main code that an application
+				requires to run. The initial file that is
+				displayed inside the window when an application
+				is run is "unixexec.html".
+
+/boot				Folder that holds the boot sequence, which
+				means that most of the images and resources
+				are preloaded in an Apple like boot screen.
+				The very first file that is called is
+				"init.html", which then calls
+				"mach_kernel.html", which does most of the 
+				preloading.
+
+/Library			As in the original, the Library folder
+  |				contains files, that are very important. In
+  |				this case wallpapers and music.
+  |
+  /DesktopWallpaper		Contains the available wallpapers in the two
+  |				available resolutions.
+  |
+  /iTunesMusic			Contains music you want to stream with iTunes.
+				Preferably the music should be in MP3 format.
+
+main1024.html			This is the file that contains the desktop,
+				dock, desktop icon, and menu bar. This is
+				essentially the main desktop the user sees,
+				which calls all functions and programs. The
+				code is mostly divided into layers and tables,
+				which are commented and explained.
+
+main1280.html			Exactly the same, only optimized for the
+				second available resolution.
+
+/Public				A folder that is designated to hold files that
+				you want users to have access to. In my case,
+				I placed my music in zip format and files for
+				my Unity project. What files you put in this
+				folder is up to you.
+
+/System				This folder contains all vital system programs
+  |				and services, that are required to make it all
+  |				work.
+  |
+  /CoreServices			As the name says, it contains the Core
+    |				Services.
+    |
+    /Name_app			As the applications folder, it follows the
+      |				same structure.
+      |
+      /Contents			May contain files that are required to run an
+	|			an application or service.
+	|
+	/Resources		Contains image resources for an application
+	|			or service.
+	|
+	/MacOS			Contains the code and files that execute an
+				application. It is not always "unixexec.html",
+				it may also be Javascripts or PHP files.
+
+testing.html			A little HTML page that allows you click on a
+				link which will open OS X Mercury with the	
+				boot sequence.
+
+-------------
+
+INSTALLATION
+
+Once you have done your modifications, you will have to upload the directory
+that holds the code to your webserver. Once the upload is done, please make
+sure that you perform a CHMOD with the 755 attribute on the folder and to ALL
+of its contents, as otherwise scripts won't execute that are required to run
+the Mercury code correctly.
+
+Your webserver has to support PHP execution (both - version 4 and 5 are okay),
+as the mail application calls a PHP function without which it cannot send mails
+and will either display the PHP code in the window or offer to download the
+PHP file instead of executing it.
+
+-------------
+
+REAL WORLD USAGE
+
+In case you plan to deploy the framework to your website, please consider my
+generousity by providing the entire code and leave the notice in the
+Acknowledgements box of the About OS X window intact. As I have spent over 16
+months of work and dedicated time, I think this is not much to ask.
+
+-------------
+
+FEEDBACK - COMMENTS - BUG REPORTS - SUGGESTIONS
+
+If you have any feedback, please feel free to send me an email at
+
+mail@se51.net
+
+and tell me about it. If you found a bug, please feel free. If you just want to
+comment on the project, that's fine too.
+
+
+
+
+OS X MERCURY
+Copyright (c) 2006 - 2007
+SE51.net
+
+
+OPENMERCURY
+Copyright (c) 2007
+SE51.net
+
+I am not affiliated with Apple in any way.
+
+

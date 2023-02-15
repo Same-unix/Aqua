@@ -1,0 +1,975 @@
+<html>
+
+<head>
+<title>OS X Mercury [Running]</title>
+
+<!-- --------------------- -->
+<!-- Do not steal Mac OS X -->
+<!-- --------------------- -->
+
+<!-- OS X Mercury -->
+<!-- The world's most advanced personal homepage. -->
+
+<!-- Copyright (c) 2007 SE51.net -->
+
+<!-- I am not affiliated with Apple in any way. -->
+
+<!-- Dear Steve Jobs, please don't sue me for my creative work... -->
+
+<!-- ------------------------------------------------------------------------------ -->
+<!-- ------------------------------------------------------------------------------ -->
+<!-- ------------------------------------------------------------------------------ -->
+
+
+<!-- This page is optimized for 1024 x 768 -->
+<!-- Via Sys Prefs resolution can be changed -->
+<!-- The Wallpaper, too -->
+
+
+
+<!-- System Core scripts -->
+
+<!-- Finder. The Macintosh Desktop Experience. Meet Oxygen. -->
+
+<script src="System/CoreServices/Finder_app/Contents/MacOS/javascripts/prototype.js"> </script> 
+<script src="System/CoreServices/Finder_app/Contents/MacOS/javascripts/effects.js"> </script>
+<script src="System/CoreServices/Finder_app/Contents/MacOS/javascripts/window_effects.js"> </script>
+<script src="System/CoreServices/Finder_app/Contents/MacOS/javascripts/window.js"> </script>
+<script src="System/CoreServices/Finder_app/Contents/MacOS/javascripts/scriptaculous.js"> </script>
+	
+<link href="System/CoreServices/Finder_app/Contents/MacOS/themes/default.css" rel="stylesheet" type="text/css" >	 </link>
+<link href="System/CoreServices/Finder_app/Contents/MacOS/themes/mac_os_x.css" rel="stylesheet" type="text/css" >	 </link>
+	
+<script src="System/CoreServices/Finder_app/Contents/MacOS/js/application.js"> </script>
+
+
+<!-- Version functions -->
+
+
+<!-- System Preferences functions (called from the System Pref app -->
+
+<script>
+function setWallpaper01() {
+	document.body.background='Library/DesktopWallpaper/1024x768/AquaBlue.jpg';
+}
+
+function setWallpaper02() {
+	document.body.background='Library/DesktopWallpaper/1024x768/AquaGraphite.jpg';
+}
+
+function setWallpaper03() {
+	document.body.background='Library/DesktopWallpaper/1024x768/ClownFish.jpg';
+}
+
+function setWallpaper04() {
+	document.body.background='Library/DesktopWallpaper/1024x768/EveningReflections.jpg';
+}
+
+function setWallpaper05() {
+	document.body.background='Library/DesktopWallpaper/1024x768/FauxFur.jpg';
+}
+
+function setWallpaper06() {
+	document.body.background='Library/DesktopWallpaper/1024x768/FlowingRock.jpg';
+}
+
+function setWallpaper07() {
+	document.body.background='Library/DesktopWallpaper/1024x768/GentleRapids.jpg';
+}
+
+function setWallpaper08() {
+	document.body.background='Library/DesktopWallpaper/1024x768/JaguarAquaBlue.jpg';
+}
+
+</script>
+
+<script>
+function changeDisplayResolution17() {
+	self.resizeTo(1024,788);
+	self.location.href = 'main1024.html';
+}
+
+function changeDisplayResolution19() {
+	self.resizeTo(1280,1044);
+	self.location.href = 'main1280.html';
+}
+</script>
+
+
+
+<!-- Dock. It zooms. And bounces. Really. And to make it do this, this is what we need. -->
+<script src="System/CoreServices/Dock_app/Contents/MacOS/dock.js"></script>
+
+<script>
+
+function runLoad()
+{
+	myFishEye = new ntbFishEye('myFishEye3', 200, 'up', 'CENTER',  50, 'fishcontainer');
+	myFishEye.addMenuItem("System/CoreServices/Dock_app/Contents/Resources/Finder.png", "Finder", "onClick=Application.openFinderHome('mac_os_x')" );
+	myFishEye.addMenuItem("Applications/TimeMachine_app/Contents/Resources/app_icns.png", "Time Machine", "onClick=showTimeMachine()" );
+	myFishEye.addMenuItem("System/CoreServices/Dock_app/Contents/Resources/Dashboard.png", "Dashboard", "onClick=dashboard()");
+	myFishEye.addMenuItem("System/CoreServices/Dock_app/Contents/Resources/Safari.png", "Safari", "onClick=Application.openSafariFromDock('mac_os_x')");
+	myFishEye.addMenuItem("System/CoreServices/Dock_app/Contents/Resources/Mail.png", "Mail", "onClick=Application.openMail('mac_os_x')");
+	myFishEye.addMenuItem("System/CoreServices/Dock_app/Contents/Resources/iTunes.png", "iTunes", "onClick=Application.openiTunes('mac_os_x')");
+	myFishEye.addMenuItem("System/CoreServices/Dock_app/Contents/Resources/iChat.png", "iChat", "onClick=Application.openiChat('mac_os_x')");
+	myFishEye.addMenuItem("System/CoreServices/Dock_app/Contents/Resources/iWeb.png", "iWeb", "onClick=Application.openiWeb('mac_os_x')");
+	myFishEye.addMenuItem("System/CoreServices/Dock_app/Contents/Resources/iPhoto.png", "iPhoto", "onClick=Application.openiPhoto('mac_os_x')");
+	myFishEye.addMenuItem("System/CoreServices/Dock_app/Contents/Resources/Documents.png", "My CV", "Application.openCurriculumVitae('mac_os_x')");
+	myFishEye.addMenuItem("Applications/SystemPreferences_app/Contents/Resources/app_icns.png", "System Preferences", "onClick=Application.openSystemPreferences('mac_os_x')");
+	myFishEye.addMenuItem("System/CoreServices/Dock_app/Contents/Resources/dock-seperator.png", "", "");
+	myFishEye.addMenuItem("System/CoreServices/Dock_app/Contents/Resources/Web.png", "Apple - Mac OS X", "onClick=Application.openSafariWithLeopard('mac_os_x')");
+	myFishEye.addMenuItem("System/CoreServices/Dock_app/Contents/Resources/Trashcan.png", "Trash", "Application.openFinderTrash('mac_os_x')");
+	myFishEye.render();
+	myFishEye.updateMenuPosition();
+
+}
+</script>
+
+
+
+<!-- Finder Drop Down Menus -->
+
+<script type="text/javascript" src="System/CoreServices/Finder_app/Contents/MacOS/dropdown.js"></script>
+
+
+<!-- Dashboard code -->
+
+<script type="text/javascript" src="Applications/Dashboard_app/Contents/MacOS/widgets.js"></script>
+
+
+<style type="text/css">
+
+.hiddenPic {display:none;}
+.Dashboard {
+background-color: rgb(0, 0, 0);
+opacity: 0.7; /* Safari, Opera */
+-moz-opacity:0.70; /* FireFox */
+filter: alpha(opacity=70); /* IE */
+height: 100%;
+width: 100%;
+background-repeat:repeat;
+position:fixed;
+top: 0px;
+left: 0px;
+z-index: 1;
+}
+
+.Widgets {
+filter:Alpha(opacity:100);
+position:fixed;
+z-index: 10000000;
+}
+
+.TimeMachine {
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	top: 0px;
+	left 0px;
+	z-index: 5000000;
+}
+
+.CloseTimeMachine {
+	top: 10px;
+	left: 10px;
+	position: fixed;
+	z-index: 5000001;
+}
+
+
+</style>
+
+
+<!-- This is required for the dock. Do not touch this. Or I touch you. -->
+
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+
+fishcontainer {
+	background-color: black;
+	border: 3px;
+}
+-->
+</style>
+
+
+<!-- Dashboard stuff -->
+
+<script>
+function showWidgets() {
+	
+document.getElementById('widget_01').style.display = '';
+document.getElementById('widget_02').style.display = '';
+document.getElementById('widget_03').style.display = '';
+document.getElementById('widget_04').style.display = '';
+document.getElementById('widget_05').style.display = '';
+document.getElementById('widget_06').style.display = '';
+document.getElementById('widget_07').style.display = '';
+document.getElementById('widget_08').style.display = '';
+
+document.getElementById('close_01').style.display = '';
+document.getElementById('close_02').style.display = '';
+document.getElementById('close_03').style.display = '';
+document.getElementById('close_04').style.display = '';
+document.getElementById('close_05').style.display = '';
+document.getElementById('close_06').style.display = '';
+document.getElementById('close_07').style.display = '';
+document.getElementById('close_08').style.display = '';
+
+opacity('widget_01', 0, 100, 1300);
+opacity('widget_02', 0, 100, 900);
+opacity('widget_03', 0, 100, 1400);
+opacity('widget_04', 0, 100, 1000);
+opacity('widget_05', 0, 100, 800);
+opacity('widget_06', 0, 100, 1100);
+opacity('widget_07', 0, 100, 1000);
+opacity('widget_08', 0, 100, 1300);
+
+opacity('close_01', 0, 100, 1300);
+opacity('close_02', 0, 100, 1300);
+opacity('close_03', 0, 100, 1300);
+opacity('close_04', 0, 100, 1300);
+opacity('close_05', 0, 100, 1300);
+opacity('close_06', 0, 100, 1300);
+opacity('close_07', 0, 100, 1300);
+opacity('close_08', 0, 100, 1300);
+
+}
+</script>
+
+<script>
+function closeWidget01() {
+
+opacity('widget_01', 100, 0, 1000);
+opacity('close_01', 100, 0, 1000);
+
+}
+
+function closeWidget02() {
+
+opacity('widget_02', 100, 0, 1000);
+opacity('close_02', 100, 0, 1000);
+
+}
+
+function closeWidget03() {
+
+opacity('widget_03', 100, 0, 1000);
+opacity('close_03', 100, 0, 1000);
+
+}
+
+function closeWidget04() {
+
+opacity('widget_04', 100, 0, 1000);
+opacity('close_04', 100, 0, 1000);
+
+}
+
+function closeWidget05() {
+
+opacity('widget_05', 100, 0, 1000);
+opacity('close_05', 100, 0, 1000);
+
+}
+
+function closeWidget06() {
+
+opacity('widget_06', 100, 0, 1000);
+opacity('close_06', 100, 0, 1000);
+
+}
+
+function closeWidget07() {
+
+opacity('widget_07', 100, 0, 1000);
+opacity('close_07', 100, 0, 1000);
+
+}
+
+function closeWidget08() {
+
+opacity('widget_08', 100, 0, 1000);
+opacity('close_08', 100, 0, 1000);
+
+}
+</script>
+
+
+
+
+<!-- Show the Time Machine -->
+
+<script>
+function showTimeMachine() {
+	document.getElementById('timemachine').style.display = '';
+	document.getElementById('close_timemachine').style.display = '';
+	Element.hide('timemachine');
+	new Effect.Appear('timemachine');
+}
+
+function closeTimeMachine() {
+	new Effect.Fade('timemachine');
+	document.getElementById("timemachine").style.display = "none";
+	document.getElementById("close_timemachine").style.display = "none";
+}
+</script>
+
+
+
+
+
+<!-- Menu definitions -->
+
+<style type="text/css">
+
+div.applemenu_attach, a.applemenu_attach
+{
+  width: 250px;
+  padding: 0px 0px;
+}
+div.applemenu_menu, a.applemenu_menu
+{
+  width: 250px;
+  border: 0px solid black;
+  background: #eeeeee;
+  padding: 0px 0px;
+  color: #008000;
+  text-decoration: none;
+
+}
+a.applemenu_attach
+{
+  display: block;
+  border-bottom: none;
+  text-decoration: none;
+}
+
+form.applemenu_attach
+{
+  position: absolute;
+  visibility: hidden;
+  border: 0px solid black;
+  background: #FFFFEE;
+  padding: 0px 5px 2px 5px;
+}
+
+</style>
+
+<style type="text/css">
+
+div.findermenu_attach, a.findermenu_attach
+{
+  width: 250px;
+  padding: 0px 0px;
+}
+div.findermenu_menu, a.findermenu_menu
+{
+  width: 250px;
+  border: 0px solid black;
+  background: #eeeeee;
+  padding: 0px 0px;
+  color: #008000;
+  text-decoration: none;
+}
+a.findermenu_attach
+{
+  display: block;
+  border-bottom: none;
+  text-decoration: none;
+}
+
+form.findermenu_attach
+{
+  position: absolute;
+  visibility: hidden;
+  border: 0px solid black;
+  background: #FFFFEE;
+  padding: 0px 5px 2px 5px;
+}
+</style>
+
+<style type="text/css">
+
+div.spotlight_attach, a.spotlight_attach
+{
+  width: 337px;
+  padding: 0px 0px;
+}
+div.spotlight_menu, a.spotlight_menu
+{
+  width: 337px;
+  border: 0px solid black;
+  background: #eeeeee;
+  padding: 0px 0px;
+  color: #008000;
+  text-decoration: none;
+}
+a.spotlight_attach
+{
+  display: block;
+  border-bottom: none;
+  text-decoration: none;
+}
+
+form.spotlight_attach
+{
+  position: absolute;
+  visibility: hidden;
+  border: 0px solid black;
+  background: #FFFFEE;
+  padding: 0px 5px 2px 5px;
+}
+
+</style>
+
+
+<script>
+function dashboard() {
+	document.getElementById('WidgetLayer').style.display = '';
+	showWidgets();
+}
+</script>
+
+
+<script>
+function infobox() {
+	if (currentapp == "Finder") {
+		Application.openAboutFinder('mac_os_x');
+	}
+}
+
+function finderActive() {
+	var currentapp = "Finder";
+	document.getElementById('app_menu_name').src = "System/CoreServices/Finder_app/Contents/Resources/Menus/00-AppNames/Finder.png";
+}
+
+function safariActive() {
+	var currentapp = "Safari";
+	document.getElementById('app_menu_name').src = "System/CoreServices/Finder_app/Contents/Resources/Menus/00-AppNames/Safari.png";
+}
+</script>
+
+
+</head>
+
+
+<body marginwidth="0" marginheight="0" topmargin="0" leftmargin="0" background="Library/DesktopWallpaper/1024x768/AquaBlue.jpg" onload="runLoad()" oncontextmenu="return false;">
+
+<script>
+var currentapp = "Finder";
+</script>
+
+<div id="WidgetLayer" class="Widgets" align="center">
+
+<script language="javascript" type="text/javascript">
+document.getElementById("WidgetLayer").style.display = "none";
+
+document.getElementbyId("widget_01").style.display = "none";
+document.getElementbyId("widget_02").style.display = "none";
+document.getElementbyId("widget_03").style.display = "none";
+document.getElementbyId("widget_04").style.display = "none";
+document.getElementbyId("widget_05").style.display = "none";
+document.getElementbyId("widget_06").style.display = "none";
+document.getElementbyId("widget_07").style.display = "none";
+document.getElementbyId("widget_08").style.display = "none";
+
+document.getElementbyId("close_01").style.display = "none";
+document.getElementbyId("close_02").style.display = "none";
+document.getElementbyId("close_03").style.display = "none";
+document.getElementbyId("close_04").style.display = "none";
+document.getElementbyId("close_05").style.display = "none";
+document.getElementbyId("close_06").style.display = "none";
+document.getElementbyId("close_07").style.display = "none";
+document.getElementbyId("close_08").style.display = "none";
+</script>
+
+<table width=1024 height=768 border=0 cellspacing=0 cellpadding=0 align=center background="Applications/Dashboard_app/Contents/Resources/dashboard-back.png">
+<tr>
+<td valign=top align=center height=650>
+
+<table width=1024 height=650 border=0 cellspacing=0 cellpadding=0 align=center>
+<tr height=240>
+
+<td width=200 valign=top align=left>
+<a href=# onclick="javascript:document.getElementById('WidgetLayer').style.display = 'none';document.getElementById('WidgetLayer').style.display = 'none'"><img src="Applications/Dashboard_app/Contents/Resources/close_dashboard.png" border=0 style="cursor: default;"></a><br><br>&nbsp;&nbsp;&nbsp;<img src="Applications/Dashboard_app/Contents/Resources/close_widget.png" align=top id="close_01" onclick="javascript:new Effect.Squish(this);new Effect.Squish(widget_01)"><img src="Applications/Dashboard_app/Contents/Resources/Widgets/PSP.png" id="widget_01" class="Widgets">
+</td>
+
+<td width=153 valign=top align=left><br><br>
+<img src="Applications/Dashboard_app/Contents/Resources/close_widget.png" align=top id="close_02" onclick="javascript:new Effect.Squish(this);new Effect.Squish(widget_02)"><img src="Applications/Dashboard_app/Contents/Resources/Widgets/iPod5ive.png" id="widget_02" class="Widgets" align=top>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="Applications/Dashboard_app/Contents/Resources/close_widget.png" align=top id="close_06" onclick="javascript:new Effect.Squish(this);new Effect.Squish(widget_06)"><img src="Applications/Dashboard_app/Contents/Resources/Widgets/Wii.png" id="widget_06" class="Widgets">
+</td>
+
+<td width=225 valign=top align=left><br><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="Applications/Dashboard_app/Contents/Resources/close_widget.png" align=top id="close_03" onclick="javascript:new Effect.Squish(this);new Effect.Squish(widget_03)"><img src="Applications/Dashboard_app/Contents/Resources/Widgets/V600i.png" id="widget_03" class="Widgets">
+</td>
+
+</tr>
+
+<tr height=250>
+
+<td width=276 valign=top align=left><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="Applications/Dashboard_app/Contents/Resources/close_widget.png" align=top id="close_04" onclick="javascript:new Effect.Squish(this);new Effect.Squish(widget_04)"><img src="Applications/Dashboard_app/Contents/Resources/Widgets/iMac_G5.png" id="widget_04" class="Widgets">
+</td>
+
+<td width=240 valign=top align=left><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="Applications/Dashboard_app/Contents/Resources/close_widget.png" align=top id="close_05" onclick="javascript:new Effect.Squish(this);new Effect.Squish(widget_05)"><img src="Applications/Dashboard_app/Contents/Resources/Widgets/Stargate.png" id="widget_05" class="Widgets">
+</td>
+
+<td width=228 valign=top align=left><br><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<img src="Applications/Dashboard_app/Contents/Resources/close_widget.png" align=top id="close_08" onclick="javascript:new Effect.Squish(this);new Effect.Squish(widget_08)"><img src="Applications/Dashboard_app/Contents/Resources/Widgets/MacBook.png" id="widget_08" class="Widgets">
+</td>
+
+</tr>
+
+<tr>
+
+<td width=128 valign=top align=left>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="Applications/Dashboard_app/Contents/Resources/close_widget.png" align=top id="close_07" onclick="javascript:new Effect.Squish(this);new Effect.Squish(widget_07)"><img src="Applications/Dashboard_app/Contents/Resources/Widgets/PS2.png" id="widget_07" class="Widgets">
+</td>
+
+<td width=264 valign=top align=right>
+</td>
+
+<td width=* valign=top align=left>
+</td>
+
+</tr>
+
+</table>
+
+
+</td>
+</tr>
+
+<tr height=118 background="Applications/Dashboard_app/Contents/Resources/dashboardbar-back.png">
+<td valign=top align=left>
+
+
+<table height=118 width=768 border=0 cellspacing=0 cellpadding=0 align=left>
+<tr>
+
+<td width=30></td>
+
+<td width=96 valign=middle align=center>
+<img src="Applications/Dashboard_app/Contents/Resources/dashcontrol_01.png" onclick="javascript:new Effect.Appear(close_01);new Effect.Appear(widget_01)"><br>
+<b><font face="Arial" color=#666666 size=2>PSP</font>
+</td>
+
+<td width=20></td>
+
+<td width=96 valign=middle align=center>
+<img src="Applications/Dashboard_app/Contents/Resources/dashcontrol_02.png" onclick="javascript:new Effect.Appear(close_06);new Effect.Appear(widget_06)"><br>
+<b><font face="Arial" color=#666666 size=2>Wii</font>
+</td>
+
+<td width=20></td>
+
+<td width=96 valign=middle align=center>
+<img src="Applications/Dashboard_app/Contents/Resources/dashcontrol_03.png" onclick="javascript:new Effect.Appear(close_04);new Effect.Appear(widget_04)"><br>
+<b><font face="Arial" color=#666666 size=2>iMac G5</font>
+</td>
+
+<td width=20></td>
+
+<td width=96 valign=middle align=center>
+<img src="Applications/Dashboard_app/Contents/Resources/dashcontrol_04.png" onclick="javascript:new Effect.Appear(close_02);new Effect.Appear(widget_02)"><br>
+<b><font face="Arial" color=#666666 size=2>iPod</font>
+</td>
+
+<td width=20></td>
+
+<td width=96 valign=middle align=center>
+<img src="Applications/Dashboard_app/Contents/Resources/dashcontrol_05.png" onclick="javascript:new Effect.Appear(close_08);new Effect.Appear(widget_08)"><br>
+<b><font face="Arial" color=#666666 size=2>MacBook</font>
+</td>
+
+<td width=20></td>
+
+<td width=96 valign=middle align=center>
+<img src="Applications/Dashboard_app/Contents/Resources/dashcontrol_06.png" onclick="javascript:new Effect.Appear(close_03);new Effect.Appear(widget_03)"><br>
+<b><font face="Arial" color=#666666 size=2>V600i</font>
+</td>
+
+<td width=20></td>
+
+<td width=96 valign=middle align=center>
+<img src="Applications/Dashboard_app/Contents/Resources/dashcontrol_07.png" onclick="javascript:new Effect.Appear(close_07);new Effect.Appear(widget_07)"><br>
+<b><font face="Arial" color=#666666 size=2>PS 2</font>
+</td>
+
+<td width=20></td>
+
+<td width=96 valign=middle align=center>
+<img src="Applications/Dashboard_app/Contents/Resources/dashcontrol_08.png" onclick="javascript:new Effect.Appear(close_05);new Effect.Appear(widget_05)"><br>
+<b><font face="Arial" color=#666666 size=2>Stargate</font></b>
+</td>
+
+</tr>
+</table>
+
+
+
+</td>
+</tr>
+
+</table>
+
+
+</div>
+
+<!-- Dashboard ends -->
+
+
+
+<!-- ------------------------------------- -->
+
+
+
+<!-- TIME MACHINE -->
+
+<div id="close_timemachine" align=center class="CloseTimeMachine" style="z-index:5000001;">
+<a href="javascript:closeTimeMachine()" class="CloseTimeMachine" style="cursor:default;"><img src="Applications/Dashboard_app/Contents/Resources/close_dashboard.png" border=0></a>
+</div>
+
+<div id="timemachine" align=center class="TimeMachine" style="z-index:5000000;">
+
+<table width=1024 height=768 border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td valign=top align=left>
+<iframe src="Applications/TimeMachine_app/Contents/MacOS/unixexec.html" frameborder=0 width=100% height=100% scrolling=no></iframe>
+</td>
+</tr>
+</table>
+
+</div>
+
+<script>document.getElementById("close_timemachine").style.display = "none";</script>
+<script>document.getElementById("timemachine").style.display = "none";</script>
+
+<!-- Time Machine ends -->
+
+
+
+<!-- MAIN DESKTOP BEGINS!! -->
+
+<table width=100% height=100% align="left" border="0" cellpadding="0" cellspacing="0">
+
+    <tr>
+
+      <td align="left" valign="top">
+      
+      <table width=100% height=22 background="System/CoreServices/Finder_app/Contents/Resources/menubar-back.png" border="0" cellpadding="0" cellspacing="0">
+
+          <tr>
+
+<td align="left" valign="top" width="40">
+
+<div id="applemenu_parent"><img src="System/CoreServices/Finder_app/Contents/Resources/apple-menu.png" class="applemenu_attach" border=0 style="cursor: default" id="menu00" onclick="this.src='System/CoreServices/Finder_app/Contents/Resources/apple-menu-selected.png'"></div>
+
+<div id="applemenu_child" style="position: absolute; visibility: hidden; z-index:1000000">
+
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/01-AppleMenu/00_MenuTop.png"><br>
+
+<img onclick="javascript:Application.openAboutThisMac('mac_os_x');document.getElementById('menu00').src='System/CoreServices/Finder_app/Contents/Resources/apple-menu.png';document.getElementById('menu00').src='System/CoreServices/Finder_app/Contents/Resources/apple-menu.png'" onmouseover="this.src='System/CoreServices/Finder_app/Contents/Resources/Menus/01-AppleMenu/01-Apple-AboutThisMac_Sel.png';document.getElementById('menu00').src='System/CoreServices/Finder_app/Contents/Resources/apple-menu-selected.png'" onmouseout="this.src='System/CoreServices/Finder_app/Contents/Resources/Menus/01-AppleMenu/01-Apple-AboutThisMac.png';document.getElementById('menu00').src='System/CoreServices/Finder_app/Contents/Resources/apple-menu.png'" src="System/CoreServices/Finder_app/Contents/Resources/Menus/01-AppleMenu/01-Apple-AboutThisMac.png"><br>
+<img onclick="javascript:Application.openSoftwareUpdate('mac_os_x');document.getElementById('menu00').src='System/CoreServices/Finder_app/Contents/Resources/apple-menu.png';document.getElementById('menu00').src='System/CoreServices/Finder_app/Contents/Resources/apple-menu.png'" onmouseover="this.src='System/CoreServices/Finder_app/Contents/Resources/Menus/01-AppleMenu/02-SoftwareUpdate_Sel.png';document.getElementById('menu00').src='System/CoreServices/Finder_app/Contents/Resources/apple-menu-selected.png'" onmouseout="this.src='System/CoreServices/Finder_app/Contents/Resources/Menus/01-AppleMenu/02-SoftwareUpdate.png';document.getElementById('menu00').src='System/CoreServices/Finder_app/Contents/Resources/apple-menu.png'" src="System/CoreServices/Finder_app/Contents/Resources/Menus/01-AppleMenu/02-SoftwareUpdate.png"><br>
+<img onmouseover="this.src='System/CoreServices/Finder_app/Contents/Resources/Menus/01-AppleMenu/03-OSXSoftware_Sel.png';document.getElementById('menu00').src='System/CoreServices/Finder_app/Contents/Resources/apple-menu-selected.png'" onmouseout="this.src='System/CoreServices/Finder_app/Contents/Resources/Menus/01-AppleMenu/03-OSXSoftware.png';document.getElementById('menu00').src='System/CoreServices/Finder_app/Contents/Resources/apple-menu.png'" src="System/CoreServices/Finder_app/Contents/Resources/Menus/01-AppleMenu/03-OSXSoftware.png" onclick="document.getElementById('menu00').src='System/CoreServices/Finder_app/Contents/Resources/apple-menu.png';Application.openSafariOSXSoftware('mac_os_x')"><br>
+
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/01-AppleMenu/0A-Seperator.png" onmouseover="document.getElementById('menu00').src='System/CoreServices/Finder_app/Contents/Resources/apple-menu-selected.png'"><br>
+
+<img onclick="javascript:Application.openSystemPreferences('mac_os_x');document.getElementById('menu00').src='System/CoreServices/Finder_app/Contents/Resources/apple-menu.png'" onmouseover="this.src='System/CoreServices/Finder_app/Contents/Resources/Menus/01-AppleMenu/04-SysPrefs_Sel.png';document.getElementById('menu00').src='System/CoreServices/Finder_app/Contents/Resources/apple-menu-selected.png'" onmouseout="this.src='System/CoreServices/Finder_app/Contents/Resources/Menus/01-AppleMenu/04-SysPrefs.png';document.getElementById('menu00').src='System/CoreServices/Finder_app/Contents/Resources/apple-menu.png'" src="System/CoreServices/Finder_app/Contents/Resources/Menus/01-AppleMenu/04-SysPrefs.png"><br>
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/01-AppleMenu/05-Dock_INA.png" onmouseover="document.getElementById('menu00').src='System/CoreServices/Finder_app/Contents/Resources/apple-menu-selected.png'"><br>
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/01-AppleMenu/06-Location_INA.png" onmouseover="document.getElementById('menu00').src='System/CoreServices/Finder_app/Contents/Resources/apple-menu-selected.png'"><br>
+
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/01-AppleMenu/0A-Seperator.png" onmouseover="document.getElementById('menu00').src='System/CoreServices/Finder_app/Contents/Resources/apple-menu-selected.png'"><br>
+
+<img onclick="javascript:Application.openRestartDialog('mac_os_x');" onmouseover="this.src='System/CoreServices/Finder_app/Contents/Resources/Menus/01-AppleMenu/08-Restart_Sel.png';document.getElementById('menu00').src='System/CoreServices/Finder_app/Contents/Resources/apple-menu-selected.png'" onmouseout="this.src='System/CoreServices/Finder_app/Contents/Resources/Menus/01-AppleMenu/08-Restart.png';document.getElementById('menu00').src='System/CoreServices/Finder_app/Contents/Resources/apple-menu.png'" src="System/CoreServices/Finder_app/Contents/Resources/Menus/01-AppleMenu/08-Restart.png" onclick="document.getElementById('menu00').src='System/CoreServices/Finder_app/Contents/Resources/apple-menu.png'"><br>
+<img onclick="javascript:Application.openShutDownDialog('mac_os_x');" onmouseover="this.src='System/CoreServices/Finder_app/Contents/Resources/Menus/01-AppleMenu/09-ShutDown_Sel.png';document.getElementById('menu00').src='System/CoreServices/Finder_app/Contents/Resources/apple-menu-selected.png'" onmouseout="this.src='System/CoreServices/Finder_app/Contents/Resources/Menus/01-AppleMenu/09-ShutDown.png';document.getElementById('menu00').src='System/CoreServices/Finder_app/Contents/Resources/apple-menu.png'" src="System/CoreServices/Finder_app/Contents/Resources/Menus/01-AppleMenu/09-ShutDown.png" onclick="document.getElementById('menu00').src='System/CoreServices/Finder_app/Contents/Resources/apple-menu.png'"><br>
+
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/01-AppleMenu/0A-Seperator.png" onmouseover="document.getElementById('menu00').src='System/CoreServices/Finder_app/Contents/Resources/apple-menu-selected.png'"><br>
+
+<img onclick="javascript:Application.openLogoutDialog('mac_os_x');" onmouseover="this.src='System/CoreServices/Finder_app/Contents/Resources/Menus/01-AppleMenu/10-Logout_Sel.png';document.getElementById('menu00').src='System/CoreServices/Finder_app/Contents/Resources/apple-menu-selected.png'" onmouseout="this.src='System/CoreServices/Finder_app/Contents/Resources/Menus/01-AppleMenu/10-Logout.png';document.getElementById('menu00').src='System/CoreServices/Finder_app/Contents/Resources/apple-menu.png'" src="System/CoreServices/Finder_app/Contents/Resources/Menus/01-AppleMenu/10-Logout.png" onclick="document.getElementById('menu00').src='System/CoreServices/Finder_app/Contents/Resources/apple-menu.png'"><br>
+
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/01-AppleMenu/99_MenuBottom.png"><br>
+
+</div>
+
+<script type="text/javascript">
+at_attach("applemenu_parent", "applemenu_child", "click", "y", "pointer");
+</script>
+
+</font>  
+            
+</td>
+
+
+<!-- Finder text menus -->
+
+
+<!-- Finder/App Menu -->
+       
+<td align=left width=72 valign=top>
+<div id="findermenu_parent"><img src="System/CoreServices/Finder_app/Contents/Resources/Menus/00-AppNames/Finder.png" id="app_menu_name" style="cursor: default"></div>
+
+<div id="findermenu_child" style="position: absolute; visibility: hidden; z-index:1000000">
+
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/02-FinderMenu/00_MenuTop.png"><br>
+
+<img onclick="javascript:infobox()" onmouseover="this.src='System/CoreServices/Finder_app/Contents/Resources/Menus/02-FinderMenu/01-AboutFinder_Sel.png'" onmouseout="this.src='System/CoreServices/Finder_app/Contents/Resources/Menus/02-FinderMenu/01-AboutFinder.png'" src="System/CoreServices/Finder_app/Contents/Resources/Menus/02-FinderMenu/01-AboutFinder.png" id="app_about_info"><br>
+
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/02-FinderMenu/0A-Seperator.png"><br>
+
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/02-FinderMenu/02-Preferences_INA.png"><br>
+
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/02-FinderMenu/0A-Seperator.png"><br>
+
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/02-FinderMenu/03-EmptyTrash_INA.png"><br>
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/02-FinderMenu/04-SecureEmptyTrash_INA.png"><br>
+
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/02-FinderMenu/0A-Seperator.png"><br>
+
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/02-FinderMenu/05-Services_INA.png"><br>
+
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/02-FinderMenu/0A-Seperator.png"><br>
+
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/02-FinderMenu/06-HideFinder_INA.png"><br>
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/02-FinderMenu/07-HideOthers_INA.png"><br>
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/02-FinderMenu/08-ShowAll_INA.png"><br>
+
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/02-FinderMenu/99_MenuBottom.png"><br>
+
+</div>
+
+<script type="text/javascript">
+at_attach("findermenu_parent", "findermenu_child", "click", "y", "pointer");
+</script>
+
+</td>
+
+<td align=left width=49 valign=top>
+
+<div id="filemenu_parent"><img src="System/CoreServices/Finder_app/Contents/Resources/Menus/01-File.png" style="cursor: default"></div>
+
+<div id="filemenu_child" style="position: absolute; visibility: hidden; z-index:1000000">
+
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/03-FileMenu/00_MenuTop.png"><br>
+
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/03-FileMenu/01-NewFinderWindow.png" onmouseover="this.src='System/CoreServices/Finder_app/Contents/Resources/Menus/03-FileMenu/01-NewFinderWindow_Sel.png'" onmouseout="this.src='System/CoreServices/Finder_app/Contents/Resources/Menus/03-FileMenu/01-NewFinderWindow.png'" onclick="Application.openFinderHome('mac_os_x')"><br>
+
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/03-FileMenu/02-Find.png" onmouseover="this.src='System/CoreServices/Finder_app/Contents/Resources/Menus/03-FileMenu/02-Find_Sel.png'" onmouseout="this.src='System/CoreServices/Finder_app/Contents/Resources/Menus/03-FileMenu/02-Find.png'" onclick="Application.openMoonlight('mac_os_x')"><br>
+
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/03-FileMenu/99_MenuBottom.png"><br>
+
+</div>
+
+<script type="text/javascript">
+at_attach("filemenu_parent", "filemenu_child", "click", "y", "pointer");
+</script>
+
+</td>
+
+
+
+<td align=left width=44 valign=top>
+<div id="gomenu_parent"><img src="System/CoreServices/Finder_app/Contents/Resources/Menus/04-Go.png" style="cursor: default"></div>
+
+<div id="gomenu_child" style="position: absolute; visibility: hidden; z-index:1000000">
+
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/04-GoMenu/00_MenuTop.png"><br>
+
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/04-GoMenu/01-MercuryHD.png" onmouseover="this.src='System/CoreServices/Finder_app/Contents/Resources/Menus/04-GoMenu/01-MercuryHD_Sel.png'" onmouseout="this.src='System/CoreServices/Finder_app/Contents/Resources/Menus/04-GoMenu/01-MercuryHD.png'" onclick="Application.openFinderMercuryHD('mac_os_x')"><br>
+
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/04-GoMenu/02-Home.png" onmouseover="this.src='System/CoreServices/Finder_app/Contents/Resources/Menus/04-GoMenu/02-Home_Sel.png'" onmouseout="this.src='System/CoreServices/Finder_app/Contents/Resources/Menus/04-GoMenu/02-Home.png'" onclick="Application.openFinderHome('mac_os_x')"><br>
+
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/04-GoMenu/03-Network.png"  onmouseover="this.src='System/CoreServices/Finder_app/Contents/Resources/Menus/04-GoMenu/03-Network_Sel.png'" onmouseout="this.src='System/CoreServices/Finder_app/Contents/Resources/Menus/04-GoMenu/03-Network.png'" onclick="Application.openFinderNetwork('mac_os_x')"><br>
+
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/04-GoMenu/04-Applications.png" onmouseover="this.src='System/CoreServices/Finder_app/Contents/Resources/Menus/04-GoMenu/04-Applications_Sel.png'" onmouseout="this.src='System/CoreServices/Finder_app/Contents/Resources/Menus/04-GoMenu/04-Applications.png'" onclick="Application.openFinderApplications('mac_os_x')"><br>
+
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/04-GoMenu/99_MenuBottom.png"><br>
+
+</div>
+
+<script type="text/javascript">
+at_attach("gomenu_parent", "gomenu_child", "click", "y", "pointer");
+</script>
+
+</td>
+
+<td align=left width=57 valign=top>
+
+<div id="helpmenu_parent"><img src="System/CoreServices/Finder_app/Contents/Resources/Menus/06-Help.png" style="cursor: default"></div>
+
+<div id="helpmenu_child" style="position: absolute; visibility: hidden; z-index:1000000">
+
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/05-HelpMenu/00_MenuTop.png"><br>
+
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/05-HelpMenu/01-OSXMercuryHelp.png" onmouseover="this.src='System/CoreServices/Finder_app/Contents/Resources/Menus/05-HelpMenu/01-OSXMercuryHelp_Sel.png'" onmouseout="this.src='System/CoreServices/Finder_app/Contents/Resources/Menus/05-HelpMenu/01-OSXMercuryHelp.png'" onclick="Application.openSafariOSXHelp('mac_os_x')"><br>
+
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/03-FileMenu/99_MenuBottom.png"><br>
+
+</div>
+
+<script type="text/javascript">
+at_attach("helpmenu_parent", "helpmenu_child", "click", "y", "pointer");
+</script>
+
+</td>
+
+
+</td>
+
+<td width=52%></td>
+
+<td width=30 align=right valign=top>
+
+<div id="displaymenu_parent"><img src="System/CoreServices/Finder_app/Contents/Resources/Menus/06-Display/menubar_display_normal.png" style="cursor: default"></div>
+
+<div id="displaymenu_child" style="position: absolute; visibility: hidden; z-index:1000000">
+
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/06-Display/00_MenuTop.png"><br>
+
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/06-Display/01_1024.png" onmouseover="this.src='System/CoreServices/Finder_app/Contents/Resources/Menus/06-Display/01_1024_selected.png'" onmouseout="this.src='System/CoreServices/Finder_app/Contents/Resources/Menus/06-Display/01_1024.png'" onclick="javascript:changeDisplayResolution17();"><br>
+
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/06-Display/02_1280.png" onmouseover="this.src='System/CoreServices/Finder_app/Contents/Resources/Menus/06-Display/02_1280_selected.png'" onmouseout="this.src='System/CoreServices/Finder_app/Contents/Resources/Menus/06-Display/02_1280.png'" onclick="javascript:changeDisplayResolution19();"><br>
+
+<img src="System/CoreServices/Finder_app/Contents/Resources/Menus/06-Display/99_MenuBottom.png"><br>
+
+</div>
+
+<script type="text/javascript">
+at_attach("displaymenu_parent", "displaymenu_child", "click", "y", "pointer");
+</script>
+
+</td>
+
+<td width=44 align=right valign=middle>
+<img src="System/CoreServices/Finder_app/Contents/Resources/sound_wlan_placeholder.png">
+</td>
+
+<td width=20></td>
+
+<td valign=middle align=right>
+
+<font face="Lucida Grande, Tahoma" size="2" color=#000000 id="tP"></font>
+
+<script type="text/javascript">
+function tS(){ x=new Date(); x.setTime(x.getTime()); return x; } 
+function lZ(x){ return (x>9)?x:'0'+x; } 
+function dT(){ document.getElementById('tP').innerHTML=eval(oT); setTimeout('dT()',1000); } 
+var dN=new Array('Sun','Mon','Tue','Wed','Thu','Fri','Sat'),oT="dN[tS().getDay()]+' '+lZ(tS().getHours())+':'+lZ(tS().getMinutes())";
+if(!document.all){ window.onload=dT; }else{ dT(); }
+</script>
+
+</td>
+
+<td width=20></td>
+
+<!-- Moonlight. Find anything. Instantly. -->
+
+
+
+
+
+</td><td align="right" valign="top" width="42">
+
+<img id="moonlight_activator" onclick="javascript:Application.openMoonlight('mac_os_x');this.src='System/CoreServices/Finder_app/Contents/Resources/spotlight_selected.png'" onmouseout="javascript:this.src='System/CoreServices/Finder_app/Contents/Resources/spotlight.png'" src="System/CoreServices/Finder_app/Contents/Resources/spotlight.png">
+
+</tr>
+
+</table>
+
+<table width=100% height=23 border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td height=23 background=System/CoreServices/Finder_app/Contents/Resources/menubar-shadow.png></td>
+</tr>
+</table>
+
+
+<!-- Let's put the Dock here. It zooms. And does it all. Really. Desktop's here, too. -->
+
+<table width=100% height=100% border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td height=639 valign=top align=right>
+
+
+<table width=150 height=100% border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td height=112 valign=top align=center>
+<img src="System/CoreServices/Finder_app/Contents/Resources/MercuryDrive.png" onclick="javascript:this.src='System/CoreServices/Finder_app/Contents/Resources/MercuryDrive_selected.png'" ondblclick="javascript:Application.openFinderMercuryHD('mac_os_x');new Effect.Pulsate(this , {duration:2.0});finderActive();"><br>
+<img src="System/CoreServices/Finder_app/Contents/Resources/Label_MercuryHD.png">
+</td>
+</tr>
+
+<tr height=32><td height=32></td></tr>
+
+<tr>
+<td height=112 valign=top align=center>
+
+</td>
+</tr>
+
+</table>
+
+
+</td>
+</tr>
+
+
+<tr>
+<td valign=top>
+
+
+
+
+<!-- Dock contents begin here. -->
+
+<table border=0 cellspacing=0 cellpadding=0 align=center style="z-index:999999">
+
+<tr height=20>
+
+</tr>
+
+<tr id="dockrow" style="z-index:999999">
+
+<td style="z-index:999999" valign=bottom align=right><img src="System/CoreServices/Dock_app/Contents/Resources/dock-left-start.png"></td>
+
+<td style="z-index:999999" align=left valign=middle height=60 background="System/CoreServices/Dock_app/Contents/Resources/dock-middle.png">
+
+<div style="z-index:999999" id="myFishEye3">
+
+<!-- Delete this script call and Chuck Norris visits you in your sleep. -->
+
+<script type="text/javascript">
+
+runLoad();
+
+</script>
+
+</div>
+
+</td>
+
+<td style="z-index:999999" valign=bottom align=left><img src="System/CoreServices/Dock_app/Contents/Resources/dock-right-end.png"></td>
+
+<!-- Dock Ends -->
+
+</tr>
+</table>
+
+
+      
+
+</td>
+
+</tr>
+
+</table>
+
+</body>
+
+</html>
